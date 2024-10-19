@@ -1,0 +1,2 @@
+- Setup Home Page (main.dart)
+- Setup Dashboard Page
