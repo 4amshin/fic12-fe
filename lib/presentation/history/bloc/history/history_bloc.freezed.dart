@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'checkout_bloc.dart';
+part of 'history_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,71 +15,65 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CheckoutEvent {
+mixin _$HistoryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Product product) addCheckout,
-    required TResult Function(Product product) removeCheckout,
+    required TResult Function() fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(Product product)? addCheckout,
-    TResult? Function(Product product)? removeCheckout,
+    TResult? Function()? fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product)? addCheckout,
-    TResult Function(Product product)? removeCheckout,
+    TResult Function()? fetchHistory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_AddCheckout value) addCheckout,
-    required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_FetchHistory value) fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_AddCheckout value)? addCheckout,
-    TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_FetchHistory value)? fetchHistory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_AddCheckout value)? addCheckout,
-    TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_FetchHistory value)? fetchHistory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CheckoutEventCopyWith<$Res> {
-  factory $CheckoutEventCopyWith(
-          CheckoutEvent value, $Res Function(CheckoutEvent) then) =
-      _$CheckoutEventCopyWithImpl<$Res, CheckoutEvent>;
+abstract class $HistoryEventCopyWith<$Res> {
+  factory $HistoryEventCopyWith(
+          HistoryEvent value, $Res Function(HistoryEvent) then) =
+      _$HistoryEventCopyWithImpl<$Res, HistoryEvent>;
 }
 
 /// @nodoc
-class _$CheckoutEventCopyWithImpl<$Res, $Val extends CheckoutEvent>
-    implements $CheckoutEventCopyWith<$Res> {
-  _$CheckoutEventCopyWithImpl(this._value, this._then);
+class _$HistoryEventCopyWithImpl<$Res, $Val extends HistoryEvent>
+    implements $HistoryEventCopyWith<$Res> {
+  _$HistoryEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CheckoutEvent
+  /// Create a copy of HistoryEvent
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -92,13 +86,13 @@ abstract class _$$StartedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$StartedImplCopyWithImpl<$Res>
-    extends _$CheckoutEventCopyWithImpl<$Res, _$StartedImpl>
+    extends _$HistoryEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckoutEvent
+  /// Create a copy of HistoryEvent
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -109,7 +103,7 @@ class _$StartedImpl implements _Started {
 
   @override
   String toString() {
-    return 'CheckoutEvent.started()';
+    return 'HistoryEvent.started()';
   }
 
   @override
@@ -125,8 +119,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Product product) addCheckout,
-    required TResult Function(Product product) removeCheckout,
+    required TResult Function() fetchHistory,
   }) {
     return started();
   }
@@ -135,8 +128,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(Product product)? addCheckout,
-    TResult? Function(Product product)? removeCheckout,
+    TResult? Function()? fetchHistory,
   }) {
     return started?.call();
   }
@@ -145,8 +137,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product)? addCheckout,
-    TResult Function(Product product)? removeCheckout,
+    TResult Function()? fetchHistory,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -159,8 +150,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_AddCheckout value) addCheckout,
-    required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_FetchHistory value) fetchHistory,
   }) {
     return started(this);
   }
@@ -169,8 +159,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_AddCheckout value)? addCheckout,
-    TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_FetchHistory value)? fetchHistory,
   }) {
     return started?.call(this);
   }
@@ -179,8 +168,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_AddCheckout value)? addCheckout,
-    TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_FetchHistory value)? fetchHistory,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -190,105 +178,75 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements CheckoutEvent {
+abstract class _Started implements HistoryEvent {
   const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$AddCheckoutImplCopyWith<$Res> {
-  factory _$$AddCheckoutImplCopyWith(
-          _$AddCheckoutImpl value, $Res Function(_$AddCheckoutImpl) then) =
-      __$$AddCheckoutImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Product product});
+abstract class _$$FetchHistoryImplCopyWith<$Res> {
+  factory _$$FetchHistoryImplCopyWith(
+          _$FetchHistoryImpl value, $Res Function(_$FetchHistoryImpl) then) =
+      __$$FetchHistoryImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AddCheckoutImplCopyWithImpl<$Res>
-    extends _$CheckoutEventCopyWithImpl<$Res, _$AddCheckoutImpl>
-    implements _$$AddCheckoutImplCopyWith<$Res> {
-  __$$AddCheckoutImplCopyWithImpl(
-      _$AddCheckoutImpl _value, $Res Function(_$AddCheckoutImpl) _then)
+class __$$FetchHistoryImplCopyWithImpl<$Res>
+    extends _$HistoryEventCopyWithImpl<$Res, _$FetchHistoryImpl>
+    implements _$$FetchHistoryImplCopyWith<$Res> {
+  __$$FetchHistoryImplCopyWithImpl(
+      _$FetchHistoryImpl _value, $Res Function(_$FetchHistoryImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckoutEvent
+  /// Create a copy of HistoryEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? product = null,
-  }) {
-    return _then(_$AddCheckoutImpl(
-      product: null == product
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as Product,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$AddCheckoutImpl implements _AddCheckout {
-  const _$AddCheckoutImpl({required this.product});
-
-  @override
-  final Product product;
+class _$FetchHistoryImpl implements _FetchHistory {
+  const _$FetchHistoryImpl();
 
   @override
   String toString() {
-    return 'CheckoutEvent.addCheckout(product: $product)';
+    return 'HistoryEvent.fetchHistory()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AddCheckoutImpl &&
-            (identical(other.product, product) || other.product == product));
+        (other.runtimeType == runtimeType && other is _$FetchHistoryImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, product);
-
-  /// Create a copy of CheckoutEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AddCheckoutImplCopyWith<_$AddCheckoutImpl> get copyWith =>
-      __$$AddCheckoutImplCopyWithImpl<_$AddCheckoutImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(Product product) addCheckout,
-    required TResult Function(Product product) removeCheckout,
+    required TResult Function() fetchHistory,
   }) {
-    return addCheckout(product);
+    return fetchHistory();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(Product product)? addCheckout,
-    TResult? Function(Product product)? removeCheckout,
+    TResult? Function()? fetchHistory,
   }) {
-    return addCheckout?.call(product);
+    return fetchHistory?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(Product product)? addCheckout,
-    TResult Function(Product product)? removeCheckout,
+    TResult Function()? fetchHistory,
     required TResult orElse(),
   }) {
-    if (addCheckout != null) {
-      return addCheckout(product);
+    if (fetchHistory != null) {
+      return fetchHistory();
     }
     return orElse();
   }
@@ -297,207 +255,45 @@ class _$AddCheckoutImpl implements _AddCheckout {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_AddCheckout value) addCheckout,
-    required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_FetchHistory value) fetchHistory,
   }) {
-    return addCheckout(this);
+    return fetchHistory(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_AddCheckout value)? addCheckout,
-    TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_FetchHistory value)? fetchHistory,
   }) {
-    return addCheckout?.call(this);
+    return fetchHistory?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_AddCheckout value)? addCheckout,
-    TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_FetchHistory value)? fetchHistory,
     required TResult orElse(),
   }) {
-    if (addCheckout != null) {
-      return addCheckout(this);
+    if (fetchHistory != null) {
+      return fetchHistory(this);
     }
     return orElse();
   }
 }
 
-abstract class _AddCheckout implements CheckoutEvent {
-  const factory _AddCheckout({required final Product product}) =
-      _$AddCheckoutImpl;
-
-  Product get product;
-
-  /// Create a copy of CheckoutEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AddCheckoutImplCopyWith<_$AddCheckoutImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _FetchHistory implements HistoryEvent {
+  const factory _FetchHistory() = _$FetchHistoryImpl;
 }
 
 /// @nodoc
-abstract class _$$RemoveCheckoutImplCopyWith<$Res> {
-  factory _$$RemoveCheckoutImplCopyWith(_$RemoveCheckoutImpl value,
-          $Res Function(_$RemoveCheckoutImpl) then) =
-      __$$RemoveCheckoutImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Product product});
-}
-
-/// @nodoc
-class __$$RemoveCheckoutImplCopyWithImpl<$Res>
-    extends _$CheckoutEventCopyWithImpl<$Res, _$RemoveCheckoutImpl>
-    implements _$$RemoveCheckoutImplCopyWith<$Res> {
-  __$$RemoveCheckoutImplCopyWithImpl(
-      _$RemoveCheckoutImpl _value, $Res Function(_$RemoveCheckoutImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of CheckoutEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? product = null,
-  }) {
-    return _then(_$RemoveCheckoutImpl(
-      product: null == product
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as Product,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$RemoveCheckoutImpl implements _RemoveCheckout {
-  const _$RemoveCheckoutImpl({required this.product});
-
-  @override
-  final Product product;
-
-  @override
-  String toString() {
-    return 'CheckoutEvent.removeCheckout(product: $product)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RemoveCheckoutImpl &&
-            (identical(other.product, product) || other.product == product));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, product);
-
-  /// Create a copy of CheckoutEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RemoveCheckoutImplCopyWith<_$RemoveCheckoutImpl> get copyWith =>
-      __$$RemoveCheckoutImplCopyWithImpl<_$RemoveCheckoutImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(Product product) addCheckout,
-    required TResult Function(Product product) removeCheckout,
-  }) {
-    return removeCheckout(product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(Product product)? addCheckout,
-    TResult? Function(Product product)? removeCheckout,
-  }) {
-    return removeCheckout?.call(product);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(Product product)? addCheckout,
-    TResult Function(Product product)? removeCheckout,
-    required TResult orElse(),
-  }) {
-    if (removeCheckout != null) {
-      return removeCheckout(product);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_AddCheckout value) addCheckout,
-    required TResult Function(_RemoveCheckout value) removeCheckout,
-  }) {
-    return removeCheckout(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_AddCheckout value)? addCheckout,
-    TResult? Function(_RemoveCheckout value)? removeCheckout,
-  }) {
-    return removeCheckout?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_AddCheckout value)? addCheckout,
-    TResult Function(_RemoveCheckout value)? removeCheckout,
-    required TResult orElse(),
-  }) {
-    if (removeCheckout != null) {
-      return removeCheckout(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RemoveCheckout implements CheckoutEvent {
-  const factory _RemoveCheckout({required final Product product}) =
-      _$RemoveCheckoutImpl;
-
-  Product get product;
-
-  /// Create a copy of CheckoutEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RemoveCheckoutImplCopyWith<_$RemoveCheckoutImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$CheckoutState {
+mixin _$HistoryState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)
-        success,
+    required TResult Function(List<OrderModel> histories) success,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -505,9 +301,7 @@ mixin _$CheckoutState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
-        success,
+    TResult? Function(List<OrderModel> histories)? success,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -515,9 +309,7 @@ mixin _$CheckoutState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
-        success,
+    TResult Function(List<OrderModel> histories)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -550,23 +342,23 @@ mixin _$CheckoutState {
 }
 
 /// @nodoc
-abstract class $CheckoutStateCopyWith<$Res> {
-  factory $CheckoutStateCopyWith(
-          CheckoutState value, $Res Function(CheckoutState) then) =
-      _$CheckoutStateCopyWithImpl<$Res, CheckoutState>;
+abstract class $HistoryStateCopyWith<$Res> {
+  factory $HistoryStateCopyWith(
+          HistoryState value, $Res Function(HistoryState) then) =
+      _$HistoryStateCopyWithImpl<$Res, HistoryState>;
 }
 
 /// @nodoc
-class _$CheckoutStateCopyWithImpl<$Res, $Val extends CheckoutState>
-    implements $CheckoutStateCopyWith<$Res> {
-  _$CheckoutStateCopyWithImpl(this._value, this._then);
+class _$HistoryStateCopyWithImpl<$Res, $Val extends HistoryState>
+    implements $HistoryStateCopyWith<$Res> {
+  _$HistoryStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CheckoutState
+  /// Create a copy of HistoryState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -579,13 +371,13 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$CheckoutStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$HistoryStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckoutState
+  /// Create a copy of HistoryState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -596,7 +388,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'CheckoutState.initial()';
+    return 'HistoryState.initial()';
   }
 
   @override
@@ -613,9 +405,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)
-        success,
+    required TResult Function(List<OrderModel> histories) success,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -626,9 +416,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
-        success,
+    TResult? Function(List<OrderModel> histories)? success,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -639,9 +427,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
-        success,
+    TResult Function(List<OrderModel> histories)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -689,7 +475,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements CheckoutState {
+abstract class _Initial implements HistoryState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -702,13 +488,13 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$CheckoutStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$HistoryStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckoutState
+  /// Create a copy of HistoryState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -719,7 +505,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'CheckoutState.loading()';
+    return 'HistoryState.loading()';
   }
 
   @override
@@ -736,9 +522,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)
-        success,
+    required TResult Function(List<OrderModel> histories) success,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -749,9 +533,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
-        success,
+    TResult? Function(List<OrderModel> histories)? success,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -762,9 +544,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
-        success,
+    TResult Function(List<OrderModel> histories)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -812,7 +592,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements CheckoutState {
+abstract class _Loading implements HistoryState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -822,39 +602,29 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<OrderItem> products, int totalQuantity, int totalPrice});
+  $Res call({List<OrderModel> histories});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$CheckoutStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$HistoryStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckoutState
+  /// Create a copy of HistoryState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? products = null,
-    Object? totalQuantity = null,
-    Object? totalPrice = null,
+    Object? histories = null,
   }) {
     return _then(_$SuccessImpl(
-      products: null == products
-          ? _value._products
-          : products // ignore: cast_nullable_to_non_nullable
-              as List<OrderItem>,
-      totalQuantity: null == totalQuantity
-          ? _value.totalQuantity
-          : totalQuantity // ignore: cast_nullable_to_non_nullable
-              as int,
-      totalPrice: null == totalPrice
-          ? _value.totalPrice
-          : totalPrice // ignore: cast_nullable_to_non_nullable
-              as int,
+      histories: null == histories
+          ? _value._histories
+          : histories // ignore: cast_nullable_to_non_nullable
+              as List<OrderModel>,
     ));
   }
 }
@@ -862,28 +632,20 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(
-      {required final List<OrderItem> products,
-      required this.totalQuantity,
-      required this.totalPrice})
-      : _products = products;
+  const _$SuccessImpl({required final List<OrderModel> histories})
+      : _histories = histories;
 
-  final List<OrderItem> _products;
+  final List<OrderModel> _histories;
   @override
-  List<OrderItem> get products {
-    if (_products is EqualUnmodifiableListView) return _products;
+  List<OrderModel> get histories {
+    if (_histories is EqualUnmodifiableListView) return _histories;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_products);
+    return EqualUnmodifiableListView(_histories);
   }
 
   @override
-  final int totalQuantity;
-  @override
-  final int totalPrice;
-
-  @override
   String toString() {
-    return 'CheckoutState.success(products: $products, totalQuantity: $totalQuantity, totalPrice: $totalPrice)';
+    return 'HistoryState.success(histories: $histories)';
   }
 
   @override
@@ -891,21 +653,15 @@ class _$SuccessImpl implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            const DeepCollectionEquality().equals(other._products, _products) &&
-            (identical(other.totalQuantity, totalQuantity) ||
-                other.totalQuantity == totalQuantity) &&
-            (identical(other.totalPrice, totalPrice) ||
-                other.totalPrice == totalPrice));
+            const DeepCollectionEquality()
+                .equals(other._histories, _histories));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_products),
-      totalQuantity,
-      totalPrice);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_histories));
 
-  /// Create a copy of CheckoutState
+  /// Create a copy of HistoryState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -918,12 +674,10 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)
-        success,
+    required TResult Function(List<OrderModel> histories) success,
     required TResult Function(String message) error,
   }) {
-    return success(products, totalQuantity, totalPrice);
+    return success(histories);
   }
 
   @override
@@ -931,12 +685,10 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
-        success,
+    TResult? Function(List<OrderModel> histories)? success,
     TResult? Function(String message)? error,
   }) {
-    return success?.call(products, totalQuantity, totalPrice);
+    return success?.call(histories);
   }
 
   @override
@@ -944,14 +696,12 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
-        success,
+    TResult Function(List<OrderModel> histories)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(products, totalQuantity, totalPrice);
+      return success(histories);
     }
     return orElse();
   }
@@ -994,17 +744,13 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements CheckoutState {
-  const factory _Success(
-      {required final List<OrderItem> products,
-      required final int totalQuantity,
-      required final int totalPrice}) = _$SuccessImpl;
+abstract class _Success implements HistoryState {
+  const factory _Success({required final List<OrderModel> histories}) =
+      _$SuccessImpl;
 
-  List<OrderItem> get products;
-  int get totalQuantity;
-  int get totalPrice;
+  List<OrderModel> get histories;
 
-  /// Create a copy of CheckoutState
+  /// Create a copy of HistoryState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -1022,13 +768,13 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$CheckoutStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$HistoryStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckoutState
+  /// Create a copy of HistoryState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -1054,7 +800,7 @@ class _$ErrorImpl implements _Error {
 
   @override
   String toString() {
-    return 'CheckoutState.error(message: $message)';
+    return 'HistoryState.error(message: $message)';
   }
 
   @override
@@ -1068,7 +814,7 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of CheckoutState
+  /// Create a copy of HistoryState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -1081,9 +827,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)
-        success,
+    required TResult Function(List<OrderModel> histories) success,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -1094,9 +838,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
-        success,
+    TResult? Function(List<OrderModel> histories)? success,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -1107,9 +849,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
-        success,
+    TResult Function(List<OrderModel> histories)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -1157,12 +897,12 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements CheckoutState {
+abstract class _Error implements HistoryState {
   const factory _Error({required final String message}) = _$ErrorImpl;
 
   String get message;
 
-  /// Create a copy of CheckoutState
+  /// Create a copy of HistoryState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
