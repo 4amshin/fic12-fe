@@ -706,15 +706,15 @@ class __$$AddProductImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? product = freezed,
-    Object? image = freezed,
+    Object? product = null,
+    Object? image = null,
   }) {
     return _then(_$AddProductImpl(
-      product: freezed == product
+      product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as Product,
-      image: freezed == image
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as XFile,
@@ -742,15 +742,12 @@ class _$AddProductImpl implements _AddProduct {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddProductImpl &&
-            const DeepCollectionEquality().equals(other.product, product) &&
-            const DeepCollectionEquality().equals(other.image, image));
+            (identical(other.product, product) || other.product == product) &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(product),
-      const DeepCollectionEquality().hash(image));
+  int get hashCode => Object.hash(runtimeType, product, image);
 
   /// Create a copy of ProductEvent
   /// with the given fields replaced by the non-null parameter values.
