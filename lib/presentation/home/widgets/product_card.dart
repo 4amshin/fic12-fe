@@ -1,11 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fic12_fe/core/constants/variables.dart';
+import 'package:fic12_fe/core/extensions/int_ext.dart';
+import 'package:fic12_fe/data/models/response/product_response_model.dart';
+import 'package:fic12_fe/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_pos_app/core/constants/variables.dart';
-import 'package:flutter_pos_app/core/extensions/int_ext.dart';
-import 'package:flutter_pos_app/data/models/response/product_response_model.dart';
-import 'package:flutter_pos_app/presentation/home/bloc/checkout/checkout_bloc.dart';
-
 import '../../../core/components/spaces.dart';
 import '../../../core/constants/colors.dart';
 
@@ -23,7 +22,9 @@ class ProductCard extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            context.read<CheckoutBloc>().add(CheckoutEvent.addCheckout(data));
+            context
+                .read<CheckoutBloc>()
+                .add(CheckoutEvent.addCheckout(product: data));
           },
           child: Container(
             padding: const EdgeInsets.all(16.0),
@@ -109,8 +110,8 @@ class ProductCard extends StatelessWidget {
           builder: (context, state) {
             return state.maybeWhen(
               orElse: () => const SizedBox(),
-              success: (products, qty, price, _) {
-                if (qty == 0) {
+              success: (products, totalQuantity, totalPrice) {
+                if (totalQuantity == 0) {
                   return const SizedBox();
                 }
                 return products.any((element) => element.product == data)
