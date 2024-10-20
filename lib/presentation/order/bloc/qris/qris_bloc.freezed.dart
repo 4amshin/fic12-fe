@@ -876,10 +876,10 @@ class __$$QrisResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? qrisResponseModel = freezed,
+    Object? qrisResponseModel = null,
   }) {
     return _then(_$QrisResponseImpl(
-      qrisResponseModel: freezed == qrisResponseModel
+      qrisResponseModel: null == qrisResponseModel
           ? _value.qrisResponseModel
           : qrisResponseModel // ignore: cast_nullable_to_non_nullable
               as QrisResponseModel,
@@ -905,13 +905,12 @@ class _$QrisResponseImpl implements _QrisResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QrisResponseImpl &&
-            const DeepCollectionEquality()
-                .equals(other.qrisResponseModel, qrisResponseModel));
+            (identical(other.qrisResponseModel, qrisResponseModel) ||
+                other.qrisResponseModel == qrisResponseModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(qrisResponseModel));
+  int get hashCode => Object.hash(runtimeType, qrisResponseModel);
 
   /// Create a copy of QrisState
   /// with the given fields replaced by the non-null parameter values.
@@ -1381,10 +1380,10 @@ class __$$StatusCheckImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? qrisStatusResponseModel = freezed,
+    Object? qrisStatusResponseModel = null,
   }) {
     return _then(_$StatusCheckImpl(
-      qrisStatusResponseModel: freezed == qrisStatusResponseModel
+      qrisStatusResponseModel: null == qrisStatusResponseModel
           ? _value.qrisStatusResponseModel
           : qrisStatusResponseModel // ignore: cast_nullable_to_non_nullable
               as QrisStatusResponseModel,
@@ -1410,13 +1409,13 @@ class _$StatusCheckImpl implements _StatusCheck {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StatusCheckImpl &&
-            const DeepCollectionEquality().equals(
-                other.qrisStatusResponseModel, qrisStatusResponseModel));
+            (identical(
+                    other.qrisStatusResponseModel, qrisStatusResponseModel) ||
+                other.qrisStatusResponseModel == qrisStatusResponseModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(qrisStatusResponseModel));
+  int get hashCode => Object.hash(runtimeType, qrisStatusResponseModel);
 
   /// Create a copy of QrisState
   /// with the given fields replaced by the non-null parameter values.

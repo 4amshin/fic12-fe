@@ -24,7 +24,7 @@ class ProductResponseModel {
 }
 
 class Product {
-  final int id;
+  final int? id;
   final String name;
   final int price;
   final int stock;
@@ -33,7 +33,7 @@ class Product {
   final bool isBestSeller;
 
   Product({
-    required this.id,
+    this.id,
     required this.name,
     required this.price,
     required this.stock,
