@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
+// import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
 
 import '../../../core/constants/colors.dart';
 
 class MenuPrinterContent extends StatelessWidget {
-  final BluetoothInfo data;
+  // final BluetoothInfo data;
   final bool isSelected;
   const MenuPrinterContent({
     super.key,
-    required this.data,
+    // required this.data,
     required this.isSelected,
   });
 
@@ -25,13 +25,15 @@ class MenuPrinterContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Name : ${data.name}',
+            'Name',
+            // 'Name : ${data.name}',
             style: const TextStyle(
               fontWeight: FontWeight.w700,
             ),
           ),
           Text(
-            'macAddress: ${data.macAdress}',
+            'macAddress',
+            // 'macAddress: ${data.macAdress}',
             style: const TextStyle(
               fontSize: 12,
             ),

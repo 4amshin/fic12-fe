@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     return FicProviders(
       child: MaterialApp(
         title: 'POS App',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
           useMaterial3: true,

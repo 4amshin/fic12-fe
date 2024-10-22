@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fic12_fe/core/assets/assets.gen.dart';
 import 'package:fic12_fe/core/components/menu_button.dart';
 import 'package:fic12_fe/core/components/search_input.dart';
@@ -6,7 +8,6 @@ import 'package:fic12_fe/presentation/home/bloc/product/product_bloc.dart';
 import 'package:fic12_fe/presentation/home/widgets/product_card.dart';
 import 'package:fic12_fe/presentation/home/widgets/product_empty.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {

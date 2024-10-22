@@ -1,6 +1,13 @@
+import 'dart:developer';
+
 import 'package:fic12_fe/core/assets/assets.gen.dart';
+import 'package:fic12_fe/core/components/buttons.dart';
 import 'package:fic12_fe/core/components/custom_text_field.dart';
 import 'package:fic12_fe/core/components/spaces.dart';
+import 'package:fic12_fe/data/data_resources/auth_local_data_source.dart';
+import 'package:fic12_fe/data/models/request/auth_request_model.dart';
+import 'package:fic12_fe/presentation/auth/bloc/login/login_bloc.dart';
+import 'package:fic12_fe/presentation/home/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -71,8 +78,49 @@ class _LoginPageState extends State<LoginPage> {
             obscureText: true,
           ),
           const SpaceHeight(24.0),
-          BlocListener(
-            listener: (context, state) {},
+          BlocConsumer<LoginBloc, LoginState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                orElse: () => Button.filled(
+                  onPressed: () {
+                    final input = AuthRequestModel(
+                      email: usernameController.text,
+                      password: passwordController.text,
+                    );
+
+                    log('Input: ${input.toJson()}');
+
+                    context
+                        .read<LoginBloc>()
+                        .add(LoginEvent.login(authRequestModel: input));
+                  },
+                  label: 'Login',
+                ),
+                loading: () => const Center(child: CircularProgressIndicator()),
+              );
+            },
+            listener: (context, state) {
+              state.maybeWhen(
+                orElse: () {},
+                success: (authResponseModel) {
+                  AuthLocalDataSource().saveAuthData(authResponseModel);
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DashboardPage(),
+                    ),
+                  );
+                },
+                error: (message) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(message),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                },
+              );
+            },
           ),
         ],
       ),

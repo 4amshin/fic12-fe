@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:fic12_fe/core/constants/variables.dart';
 import 'package:fic12_fe/data/data_resources/auth_local_data_source.dart';
 import 'package:fic12_fe/data/models/request/auth_request_model.dart';
@@ -19,7 +21,7 @@ class AuthRemoteDataSource {
     final response = await http.post(
       Uri.parse(baseUrl),
       headers: headers,
-      body: authRequestModel.toJson(),
+      body: authRequestModel.toRawJson(),
     );
 
     if (response.statusCode == 200) {

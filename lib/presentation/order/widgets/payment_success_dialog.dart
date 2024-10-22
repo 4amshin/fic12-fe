@@ -8,7 +8,7 @@ import 'package:fic12_fe/presentation/order/bloc/order/order_bloc.dart';
 import 'package:fic12_fe/presentation/order/widgets/label_value_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
+// import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/buttons.dart';
@@ -104,7 +104,7 @@ class PaymentSuccessDialog extends StatelessWidget {
                               nominal,
                               nameKasir,
                             );
-                            await PrintBluetoothThermal.writeBytes(printValue);
+                            // await PrintBluetoothThermal.writeBytes(printValue);
                           },
                           label: 'Print',
                           icon: Assets.icons.print.svg(),

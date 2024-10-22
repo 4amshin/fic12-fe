@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:fic12_fe/data/data_resources/auth_remote_data_source.dart';
 import 'package:fic12_fe/data/models/request/auth_request_model.dart';
@@ -10,6 +12,7 @@ part 'login_bloc.freezed.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthRemoteDataSource dataSource;
+
   LoginBloc(this.dataSource) : super(const _Initial()) {
     on<_Login>(_doLogin);
   }
@@ -19,6 +22,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     Emitter<LoginState> emit,
   ) async {
     emit(const _Loading());
+    log("Event Input: ${event.authRequestModel.toJson()}");
     final result = await dataSource.login(
       authRequestModel: event.authRequestModel,
     );
