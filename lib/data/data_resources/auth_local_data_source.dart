@@ -57,4 +57,15 @@ class AuthLocalDataSource {
     log('Fetching Current Midtrans Server Key ($serverKey)');
     return serverKey ?? '';
   }
+
+  Future<void> savePrinter(String printer) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('printer', printer);
+  }
+
+  Future<String> getPrinter() async {
+    final prefs = await SharedPreferences.getInstance();
+    final printer = prefs.getString('printer');
+    return printer ?? '';
+  }
 }

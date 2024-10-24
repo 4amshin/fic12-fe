@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:fic12_fe/core/assets/assets.gen.dart';
 import 'package:fic12_fe/core/components/buttons.dart';
 import 'package:fic12_fe/core/components/custom_text_field.dart';
@@ -87,9 +85,6 @@ class _LoginPageState extends State<LoginPage> {
                       email: usernameController.text,
                       password: passwordController.text,
                     );
-
-                    log('Input: ${input.toJson()}');
-
                     context
                         .read<LoginBloc>()
                         .add(LoginEvent.login(authRequestModel: input));

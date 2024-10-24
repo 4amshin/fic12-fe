@@ -36,10 +36,10 @@ class _SyncDataPageState extends State<SyncDataPage> {
             listener: (context, state) {
               state.maybeMap(
                 orElse: () {},
-                success: (_) async {
+                success: (data) async {
                   await ProductLocalDataSource.instance.removeAllProduct();
                   await ProductLocalDataSource.instance
-                      .insertAllProduct(_.products.toList());
+                      .insertAllProduct(data.products);
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       backgroundColor: AppColors.primary,
                       content: Text(
@@ -74,8 +74,8 @@ class _SyncDataPageState extends State<SyncDataPage> {
               state.maybeMap(
                 orElse: () {},
                 success: (_) async {
-                  // await ProductLocalDatasource.instance.removeAllProduct();
-                  // await ProductLocalDatasource.instance
+                  // await ProductLocalDataSource.instance.removeAllProduct();
+                  // await ProductLocalDataSource.instance
                   //     .insertAllProduct(_.products.toList());
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       backgroundColor: AppColors.primary,
