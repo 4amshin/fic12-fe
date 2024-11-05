@@ -1,2 +1,28 @@
 Problem in The Sync Data Orderr
 still failed in the api (check it)
+------------
+The Current Problem is on progress
+last code
+    - Create Category function(Insert,Remove,Get) in ProductLocalDataSource
+    - Because Now Category is not String but a model, i change the insertProductToLocal. 
+    in Product.toLocalMap, i modify category to category.name,
+    - add_product_page.dart still error until we finish this problem, cause the type data used on that 
+    page is String for Category while now the type is Category
+
+New Update
+    - i think we should change the api instead, so instead of sending category model inside productResource
+    lest modify the ProductResource in the laravel side so its only gonna send string instead of model
+    - i did it, so now try run it as usual, the old code
+    
+WATCH THE WHOLE VIDEO FIRST, FIND OUT THE PURPOSE WHY Mr.BAHRI TRY TO SAVE CATEGORY DATA TO LOCAL
+IF ITS ONLY FOR THE ADD DATA PRODCUT WHIC IS REQURING THE LIST OF CATGEORIES THEN USE ONLY THE CATEGORIES API
+
+LAST FOLLOW VIDEO (1:25:00)
+
+So i'v watch it, and the purpose is
+    - in sync data page, he added button for sync category, which saving the list of categories data to LOCAL
+    and that data is used in:
+        - displaying list menuButton
+===================
+i think for productCard which we placed the category name in it, we can use the old method
+- now for the list menuButton then we use bahri method, which save to local first then use for menuList

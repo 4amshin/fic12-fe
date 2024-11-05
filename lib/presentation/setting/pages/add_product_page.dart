@@ -167,7 +167,7 @@ class _AddProductPageState extends State<AddProductPage> {
                               name: name,
                               price: price,
                               stock: stock,
-                              category: category,
+                              // category: category,
                               isBestSeller: isBestSeller,
                               image: imageFile!.path);
                           context

@@ -2,6 +2,7 @@ import 'package:fic12_fe/core/constants/variables.dart';
 import 'package:fic12_fe/data/data_resources/auth_local_data_source.dart';
 import 'package:fic12_fe/data/models/request/product_request_model.dart';
 import 'package:fic12_fe/data/models/response/add_product_response_model.dart';
+import 'package:fic12_fe/data/models/response/category_response_model.dart';
 import 'package:fic12_fe/data/models/response/product_response_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:dartz/dartz.dart';
@@ -60,6 +61,26 @@ class ProductRemoteDataSource {
       return right(AddProductResponseModel.fromJson(body));
     } else {
       return left(body);
+    }
+  }
+
+  Future<Either<String, CategoryResponseModel>> getCategories() async {
+    final loginToken = await AuthLocalDataSource().getToken();
+    var headers = {
+      'Accept': 'application/json',
+      'Authorization': 'Bearer $loginToken',
+    };
+    const baseUrl = "${Variables.baseUrl}/api/categoryApi";
+
+    final response = await http.get(
+      Uri.parse(baseUrl),
+      headers: headers,
+    );
+
+    if (response.statusCode == 200) {
+      return right(CategoryResponseModel.fromJson(response.body));
+    } else {
+      return left(response.body);
     }
   }
 }

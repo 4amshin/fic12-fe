@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:fic12_fe/data/models/request/order_request_model.dart';
+import 'package:fic12_fe/data/models/response/category_response_model.dart';
 import 'package:fic12_fe/data/models/response/product_response_model.dart';
 import 'package:fic12_fe/presentation/home/models/order_item.dart';
 import 'package:fic12_fe/presentation/order/models/order_model.dart';
@@ -35,6 +36,7 @@ class ProductLocalDataSource {
         stock INTEGER,
         image TEXT,
         category TEXT,
+        category_id INTEGER,
         is_best_seller INTEGER
       )
     ''');
@@ -61,9 +63,45 @@ class ProductLocalDataSource {
         price INTEGER
       )
     ''');
+
+    await db.execute('''
+      CREATE TABLE categories (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        category_id INTEGER,
+        name TEXT
+      )
+    ''');
+
+    await db.execute('''
+      CREATE TABLE draft_orders (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        total_item INTEGER,
+        nominal INTEGER,
+        transaction_time TEXT,
+        table_number INTEGER,
+        draft_name TEXT
+      )
+    ''');
+
+    await db.execute('''
+      CREATE TABLE draft_order_items (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_draft_order INTEGER,
+        id_product INTEGER,
+        quantity INTEGER,
+        price INTEGER
+      )
+    ''');
   }
 
-  //save order
+  Future<Database> get database async {
+    if (_database != null) return _database!;
+
+    _database = await _initDB('pos2.db');
+    return _database!;
+  }
+
+  //===========================ORDER===========================
   Future<int> saveOrder(OrderModel order) async {
     final db = await instance.database;
     int id = await db.insert('orders', order.toMapForLocal());
@@ -74,7 +112,12 @@ class ProductLocalDataSource {
     return id;
   }
 
-  //get order by isSync = 0
+  Future<List<OrderModel>> getAllOrders() async {
+    final db = await instance.database;
+    final result = await db.query('orders', orderBy: 'id DESC');
+    return result.map((e) => OrderModel.fromLocalMap(e)).toList();
+  }
+
   Future<List<OrderModel>> getOrderByIsSync() async {
     final db = await instance.database;
     final result = await db.query('orders', where: 'is_sync = 0');
@@ -88,7 +131,6 @@ class ProductLocalDataSource {
     return result.map((e) => OrderModel.fromLocalMap(e)).toList();
   }
 
-  //get Order item by id order
   Future<List<OrderItemModel>> getOrderItemByOrderIdLocal(int orderId) async {
     final db = await instance.database;
     final result = await db.query('order_items', where: 'id_order = $orderId');
@@ -101,27 +143,18 @@ class ProductLocalDataSource {
     return result.map((e) => OrderItem.fromMapLocal(e)).toList();
   }
 
-  //update isSync order by id
   Future<int> updateIsSyncOrderById(int id) async {
     final db = await instance.database;
     return await db.update('orders', {'is_sync': 1},
         where: 'id = ?', whereArgs: [id]);
   }
 
-  Future<Database> get database async {
-    if (_database != null) return _database!;
-
-    _database = await _initDB('pos1.db');
-    return _database!;
-  }
-
-  //remove all data product
+  //===========================PRODUCT===========================
   Future<void> removeAllProduct() async {
     final db = await instance.database;
     await db.delete(tableProducts);
   }
 
-  //insert data product
   Future<void> insertAllProduct(List<Product> products) async {
     final db = await instance.database;
     for (var product in products) {
@@ -134,7 +167,6 @@ class ProductLocalDataSource {
     log('Data in LocalStorage: $allProducts');
   }
 
-  //insert single product
   Future<Product> insertProduct(Product product) async {
     final db = await instance.database;
     log("${product.toMap()}");
@@ -142,7 +174,6 @@ class ProductLocalDataSource {
     return product.copyWith(id: id);
   }
 
-  //get all product
   Future<List<Product>> getAllProduct() async {
     final db = await instance.database;
     final result = await db.query(tableProducts);
@@ -150,10 +181,23 @@ class ProductLocalDataSource {
     return result.map((e) => Product.fromMap(e)).toList();
   }
 
-  //get all order
-  Future<List<OrderModel>> getAllOrders() async {
+  //===========================CATEGORY===========================
+  Future<void> insertAllCategories(List<Category> categories) async {
     final db = await instance.database;
-    final result = await db.query('orders', orderBy: 'id DESC');
-    return result.map((e) => OrderModel.fromLocalMap(e)).toList();
+    for (var category in categories) {
+      await db.insert('categories', category.toLocal());
+    }
+  }
+
+  Future<void> removeAllCategories() async {
+    final db = await instance.database;
+    await db.delete('categories');
+  }
+
+  Future<List<Category>> getAllCategories() async {
+    final db = await instance.database;
+    final result = await db.query('categories');
+
+    return result.map((e) => Category.fromLocal(e)).toList();
   }
 }

@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:fic12_fe/data/models/response/category_response_model.dart';
+
 class ProductResponseModel {
   final List<Product> data;
 
@@ -28,7 +30,8 @@ class Product {
   final String name;
   final int price;
   final int stock;
-  final String category;
+  // final String category;
+  final Category category;
   final dynamic image;
   final bool isBestSeller;
 
@@ -51,7 +54,8 @@ class Product {
         name: json["name"],
         price: json["price"],
         stock: json["stock"],
-        category: json["category"],
+        // category: json["category"],
+        category: Category.fromMap(json["category"]),
         image: json["image"],
         isBestSeller: json["is_best_seller"] == 1 ? true : false,
       );
@@ -61,7 +65,8 @@ class Product {
         "name": name,
         "price": price,
         "stock": stock,
-        "category": category,
+        // "category": category,
+        "category": category.toMap(),
         "image": image,
         "is_best_seller": isBestSeller ? 1 : 0,
       };
@@ -71,7 +76,9 @@ class Product {
         "name": name,
         "price": price,
         "stock": stock,
-        "category": category,
+        // "category": category,
+        "category": category.name,
+        "category_id": category.id,
         "image": image,
         "is_best_seller": isBestSeller ? 1 : 0,
       };
@@ -81,7 +88,8 @@ class Product {
     String? name,
     int? price,
     int? stock,
-    String? category,
+    // String? category,
+    Category? category,
     String? image,
     bool? isBestSeller,
   }) {
