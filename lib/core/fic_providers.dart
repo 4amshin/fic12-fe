@@ -4,6 +4,7 @@ import 'package:fic12_fe/data/data_resources/order_remote_data_source.dart';
 import 'package:fic12_fe/data/data_resources/product_remote_data_source.dart';
 import 'package:fic12_fe/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:fic12_fe/presentation/history/bloc/history/history_bloc.dart';
+import 'package:fic12_fe/presentation/home/bloc/category/category_bloc.dart';
 import 'package:fic12_fe/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:fic12_fe/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:fic12_fe/presentation/home/bloc/product/product_bloc.dart';
@@ -44,6 +45,9 @@ class FicProviders extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SyncOrderBloc(OrderRemoteDataSource()),
+        ),
+        BlocProvider(
+          create: (context) => CategoryBloc(ProductRemoteDataSource()),
         ),
       ],
       child: child,
