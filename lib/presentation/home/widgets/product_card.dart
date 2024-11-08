@@ -72,7 +72,7 @@ class ProductCard extends StatelessWidget {
                 ),
                 const SpaceHeight(8.0),
                 Text(
-                  data.category,
+                  data.category.name,
                   style: const TextStyle(
                     color: AppColors.grey,
                     fontSize: 12,

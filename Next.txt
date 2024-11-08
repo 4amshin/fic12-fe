@@ -26,3 +26,10 @@ So i'v watch it, and the purpose is
 ===================
 i think for productCard which we placed the category name in it, we can use the old method
 - now for the list menuButton then we use bahri method, which save to local first then use for menuList
+=============================================
+=============================================
+=============================================
+FOCUS HERE
+- WE HAVE IMLEMENTED CATEORY BLOC
+- WE HAVE MADE SYNC DATA CAETORIES button
+NEXT WOULD BE TRY RUN IT IN MOBILE DEVICE & FOLLOW THE TUTOR

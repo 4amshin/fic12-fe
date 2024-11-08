@@ -49,7 +49,7 @@ class MenuProductItem extends StatelessWidget {
                 ),
                 const SpaceHeight(5.0),
                 Text(
-                  data.category,
+                  data.category.name,
                   style: const TextStyle(
                     fontSize: 12,
                     color: Colors.grey,
@@ -106,7 +106,7 @@ class MenuProductItem extends StatelessWidget {
                                       ),
                                       const SpaceHeight(10.0),
                                       Text(
-                                        data.category,
+                                        data.category.name,
                                         style: const TextStyle(
                                           fontSize: 12,
                                           color: Colors.grey,

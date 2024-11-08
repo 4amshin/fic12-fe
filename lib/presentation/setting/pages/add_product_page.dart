@@ -163,19 +163,19 @@ class _AddProductPageState extends State<AddProductPage> {
                               priceController!.text.toIntegerFromText;
                           final int stock =
                               stockController!.text.toIntegerFromText;
-                          final Product product = Product(
-                              name: name,
-                              price: price,
-                              stock: stock,
-                              // category: category,
-                              isBestSeller: isBestSeller,
-                              image: imageFile!.path);
-                          context
-                              .read<ProductBloc>()
-                              .add(ProductEvent.addProduct(
-                                product: product,
-                                image: imageFile!,
-                              ));
+                          // final Product product = Product(
+                          //     name: name,
+                          //     price: price,
+                          //     stock: stock,
+                          //     // category: category,
+                          //     isBestSeller: isBestSeller,
+                          //     image: imageFile!.path);
+                          // context
+                          //     .read<ProductBloc>()
+                          //     .add(ProductEvent.addProduct(
+                          //       product: product,
+                          //       image: imageFile!,
+                          //     ));
                         },
                         label: 'Simpan',
                       );

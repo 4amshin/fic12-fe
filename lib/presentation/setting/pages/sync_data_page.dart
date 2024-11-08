@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fic12_fe/core/components/spaces.dart';
 import 'package:fic12_fe/core/extensions/build_context_ext.dart';
 import 'package:fic12_fe/data/data_resources/product_local_data_source.dart';
@@ -41,11 +43,15 @@ class _SyncDataPageState extends State<SyncDataPage> {
                   await ProductLocalDataSource.instance.removeAllProduct();
                   await ProductLocalDataSource.instance
                       .insertAllProduct(data.products);
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
                       backgroundColor: AppColors.primary,
                       content: Text(
                         'Sync data product success',
-                      )));
+                      ),
+                    ),
+                  );
                 },
               );
             },
@@ -54,6 +60,7 @@ class _SyncDataPageState extends State<SyncDataPage> {
                 orElse: () {
                   return ElevatedButton(
                       onPressed: () {
+                        log("Syncing Data Product...");
                         context
                             .read<ProductBloc>()
                             .add(const ProductEvent.getProduct());
